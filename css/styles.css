@@ -188,6 +188,21 @@ header.scrolled {
   -webkit-text-fill-color: transparent;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.brand-subtitle {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0284c7;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
