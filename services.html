@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services & Solutions | MUZZAYAN TENSILE - Engineering & Turnkey Fabrication</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .services-main-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-tech-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-tech-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--border-subtle);
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+
+    .service-tech-card:hover .service-number {
+      color: var(--accent-sky);
+    }
+
+    .workflow-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .workflow-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .workflow-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-5px);
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: #0B0F19;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 992px) {
+      .services-main-grid, .workflow-steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="blueprint-mesh">
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-action-btns">
+        <a href="contact.html" class="btn-header">
+          <i class="fa-solid fa-file-invoice"></i> Get Custom Quote
+        </a>
+      </div>
+
+      <button class="hamburger-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="backdrop-overlay"></div>
+  <aside class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN</div>
+      </div>
+      <button class="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products & Portfolio</a></li>
+      <li><a href="services.html" class="active">Services & Engineering</a></li>
+      <li><a href="blog.html">Insights & Articles</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <span class="badge-tag"><span class="pulse-dot"></span> Turnkey Capabilities</span>
+      <h1 style="font-size: 3.2rem; margin-bottom: 16px;">Engineering & Technical Services</h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.1rem;">
+        From 3D form-finding and wind tunnel computational simulation to robotic CNC cutting, welding, and field erection.
+      </p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i> <span>Services</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">End-to-End Execution</span>
+        <h2 class="section-maintitle">Comprehensive Tensile Capabilities</h2>
+        <p class="section-desc">Our fully vertically-integrated workflow guarantees safety, quality, and architectural fidelity.</p>
+      </div>
+
+      <div class="services-main-grid">
+        <!-- 1 -->
+        <div class="service-tech-card">
+          <div class="service-number">01</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">Parametric 3D Form Finding</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Using cutting-edge non-linear computational algorithms (Grasshopper, Rhino, Easy Form) to discover natural minimal surfaces and equal-tension membrane geometries.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Curvature anti-clastic equilibrium</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Tension distribution mapping</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="service-tech-card">
+          <div class="service-number">02</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">FEA Structural & Wind Load Analysis</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Simulating extreme weather stress, monsoons, and cyclic wind uplift using Eurocode and ASTM tension engineering criteria with certified engineering seals.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Non-linear geometric deformation</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Foundation anchor bolt shear tests</li>
+          </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="service-tech-card">
+          <div class="service-number">03</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">CNC Fabric Plotting & HF Welding</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Fabrication in our climate-controlled factory floor. Automated vacuum CNC cutting plotters and high-frequency radio welding deliver hermetic, molecularly-bonded seams.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Sub-millimeter laser cutting precision</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> 100% waterproof HF lap welds</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="service-tech-card">
+          <div class="service-number">04</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">Steel Truss & Cable Fabrication</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Precision mild steel and stainless steel Grade 316 rigging hardware, turnbuckles, swaged studs, and epoxy polyurethane hot-dip galvanized coating systems.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Hot-dip galvanization per ASTM A123</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> High tensile stainless wire cables</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="service-tech-card">
+          <div class="service-number">05</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">Turnkey On-Site Erection & Tensioning</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Certified rigging specialists handle hydraulic tensioning jacks to prestress membranes uniformly, eliminating wrinkling or future sag over decades of service.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Calibrated hydraulic jack prestress</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Zero-wrinkle membrane finish</li>
+          </ul>
+        </div>
+
+        <!-- 6 -->
+        <div class="service-tech-card">
+          <div class="service-number">06</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 14px;">Structural Audits & Membrane Care</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Annual retensioning audits, hardware inspection, ultrasonic seam integrity checks, and specialized non-abrasive membrane washdowns.
+          </p>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.88rem; margin-top: auto;">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> Annual cable load tension checks</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-sky); margin-right: 6px;"></i> PVDF / PTFE lacquer rejuvenation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Interactive Workflow -->
+  <section class="section-padding" style="background: #080C14;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Systematic Execution</span>
+        <h2 class="section-maintitle">4-Phase Project Delivery Workflow</h2>
+        <p class="section-desc">How Muzzayan Tensile takes your architectural concept from blueprint to reality.</p>
+      </div>
+
+      <div class="workflow-steps-grid">
+        <div class="workflow-card">
+          <div class="step-badge">1</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Site Survey & Geometry</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Laser 3D scanning of boundary walls, ground elevations, and vehicle parking turning radiuses to build exact digital twins.
+          </p>
+        </div>
+
+        <div class="workflow-card">
+          <div class="step-badge">2</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Computational Modeling</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Pre-stress tension calculation, membrane pattern flattening, and structural engineer certified drawings.
+          </p>
+        </div>
+
+        <div class="workflow-card">
+          <div class="step-badge">3</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Automated Fabrication</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Automated CNC textile pattern cutting, High-Frequency radio welding, and steel truss primer and polyurethane coating.
+          </p>
+        </div>
+
+        <div class="workflow-card">
+          <div class="step-badge">4</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Rigging & Tension Handover</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Heavy anchor foundation installation, steel truss hoisting, membrane unfolding, tensioning, and warranty certification.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+            <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+            <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.7;">
+            Pioneering architectural fabric engineering, cantilever shades, and tensile membrane landmarks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Structure Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html">Car Parking Shades</a></li>
+            <li><a href="products.html">Walkway Canopies</a></li>
+            <li><a href="products.html">Stadium Roofs</a></li>
+            <li><a href="products.html">Resort Sail Shades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Muzzayan</a></li>
+            <li><a href="services.html">Engineering Process</a></li>
+            <li><a href="blog.html">Technical Insights</a></li>
+            <li><a href="contact.html">Contact Headquarters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Engineering Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+            <i class="fa-solid fa-phone" style="color: var(--accent-sky); margin-right: 8px;"></i> +92 300 1234567
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-envelope" style="color: var(--accent-sky); margin-right: 8px;"></i> projects@muzzayantensile.com
+          </p>
+          <a href="contact.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            Submit Inquiry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Muzzayan Tensile Structures Ltd. All Rights Reserved.</div>
+        <div>Crafted with Precision Atmospheric Engineering.</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567?text=Hello%20Muzzayan%20Tensile%20Team" class="whatsapp-widget" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

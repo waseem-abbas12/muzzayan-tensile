@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | MUZZAYAN TENSILE - Architectural Engineering Pioneers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .vision-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 900px;
+      margin: 60px auto 0;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--border-subtle);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 50%;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 15px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-sky);
+      box-shadow: 0 0 12px var(--accent-sky);
+    }
+
+    .timeline-item.left .timeline-dot {
+      right: -8px;
+    }
+
+    .timeline-item.right .timeline-dot {
+      left: -8px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      margin-top: 50px;
+    }
+
+    .team-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .team-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+    }
+
+    .team-img-box {
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .team-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover .team-img-box img {
+      transform: scale(1.08);
+    }
+
+    .team-info {
+      padding: 24px 20px;
+    }
+
+    @media (max-width: 992px) {
+      .story-grid, .vision-cards-grid, .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline-container::before {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left !important;
+      }
+      .timeline-item .timeline-dot {
+        left: 12px !important;
+      }
+    }
+  </style>
+</head>
+<body class="blueprint-mesh">
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-action-btns">
+        <a href="contact.html" class="btn-header">
+          <i class="fa-solid fa-file-invoice"></i> Get Custom Quote
+        </a>
+      </div>
+
+      <button class="hamburger-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="backdrop-overlay"></div>
+  <aside class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN</div>
+      </div>
+      <button class="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="products.html">Products & Portfolio</a></li>
+      <li><a href="services.html">Services & Engineering</a></li>
+      <li><a href="blog.html">Insights & Articles</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <span class="badge-tag"><span class="pulse-dot"></span> The Muzzayan Heritage</span>
+      <h1 style="font-size: 3.2rem; margin-bottom: 16px;">Architectural Vision & Engineering</h1>
+      <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto; font-size: 1.1rem;">
+        Transforming commercial urban landscapes into artistic structural feats with high-tensile fabric engineering.
+      </p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i> <span>About Us</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="story-grid">
+        <div>
+          <span class="section-subhead">Our Origin Story</span>
+          <h2 class="section-maintitle">Redefining Space Through Tension & Geometry</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8;">
+            Founded with an uncompromising ambition to replace bulky concrete and heavy corrugated metal with ultra-light, aerodynamic membrane structures, <strong>Muzzayan Tensile</strong> has emerged as the premier force in tensile fabric architecture.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; line-height: 1.8;">
+            Our multidisciplinary team of structural engineers, 3D parametric computational designers, and master fabricators deploy state-of-the-art non-linear finite element methods (FEA) to create timeless, weather-defying canopies that protect and inspire.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-sky);">
+              <div style="font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; color: #fff;">15+ Years</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem;">Fabrication Prowess</div>
+            </div>
+            <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-orchid);">
+              <div style="font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; color: #fff;">100% In-House</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem;">CNC Cutting & HF Welding</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-glow); box-shadow: var(--shadow-md);">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Engineers working on tensile structure" style="width: 100%; height: 480px; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision, Mission & Values -->
+  <section class="section-padding" style="background: #080C14;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Our Core Pillars</span>
+        <h2 class="section-maintitle">Vision, Mission & Precision Standards</h2>
+      </div>
+
+      <div class="vision-cards-grid">
+        <div class="tech-card">
+          <div class="bento-icon-box" style="margin-bottom: 20px;"><i class="fa-solid fa-eye"></i></div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Our Vision</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            To be recognized globally as the paramount innovator in tensile membranes, building carbon-efficient architectural shelters that combine structural mathematics with pure aesthetic grandeur.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <div class="bento-icon-box" style="margin-bottom: 20px;"><i class="fa-solid fa-compass-drafting"></i></div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Our Mission</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Deliver turnkey architectural fabric installations engineered to withstand the harshest storms, solar UV radiation, and heavy thermal shifts while offering unmatched design longevity.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <div class="bento-icon-box" style="margin-bottom: 20px;"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Zero-Failure Safety</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Every cable, clamp, membrane bolt, and footing is simulated across 100-year storm conditions, ensuring 100% failure-free performance across the structural lifetime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Timeline -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Journey of Innovation</span>
+        <h2 class="section-maintitle">Evolution & Milestone Achievements</h2>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="tech-card">
+            <span style="color: var(--accent-sky); font-weight: 700;">2012</span>
+            <h4 style="margin: 8px 0; font-size: 1.2rem;">Foundational Launch</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Launched with specialized parking cantilever systems in Karachi and Lahore, pioneering European PVC fabric imports.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="tech-card">
+            <span style="color: var(--accent-orchid); font-weight: 700;">2016</span>
+            <h4 style="margin: 8px 0; font-size: 1.2rem;">High-Frequency Welding Lab</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Commissioned high-precision radio-frequency automated membrane welding machines to ensure 100% leak-proof seam joints.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="tech-card">
+            <span style="color: var(--accent-sky); font-weight: 700;">2020</span>
+            <h4 style="margin: 8px 0; font-size: 1.2rem;">PTFE Mega-Span Milestone</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Successfully designed and installed the first major stadium grandstand canopy using non-combustible PTFE fiberglass membrane.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="tech-card">
+            <span style="color: var(--accent-orchid); font-weight: 700;">2026 & Beyond</span>
+            <h4 style="margin: 8px 0; font-size: 1.2rem;">Pneumatic ETFE Architecture</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Pioneering next-generation transparent ETFE foil cushions with smart parametric daylight diffusion across luxury towers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership & Engineering Team -->
+  <section class="section-padding" style="background: #080C14;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Masterminds</span>
+        <h2 class="section-maintitle">Executive & Engineering Leadership</h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Chief Architect">
+          </div>
+          <div class="team-info">
+            <h4 style="font-size: 1.2rem; margin-bottom: 4px;">Engr. Muzzayan Ali</h4>
+            <p style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 600;">Founder & Principal Structural Lead</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Master in Tension Geometry with 18+ years leading mega canopy projects.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Head of Engineering">
+          </div>
+          <div class="team-info">
+            <h4 style="font-size: 1.2rem; margin-bottom: 4px;">Dr. Tariq Siddiqui</h4>
+            <p style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 600;">Head of Non-Linear FEA Analysis</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">PhD in Structural Engineering specializing in aerodynamic membrane behavior.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Parametric Designer">
+          </div>
+          <div class="team-info">
+            <h4 style="font-size: 1.2rem; margin-bottom: 4px;">Sarah Khan</h4>
+            <p style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 600;">Lead 3D Parametric Architect</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Expert in Grasshopper and form-finding algorithms for tensile fabric surfaces.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img-box">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Fabrication Director">
+          </div>
+          <div class="team-info">
+            <h4 style="font-size: 1.2rem; margin-bottom: 4px;">Kamran Rasheed</h4>
+            <p style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 600;">Fabrication Plant Director</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Oversees automated CNC cutting plots and ISO-compliant structural welding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+            <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+            <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.7;">
+            Pioneering architectural fabric engineering, cantilever shades, and tensile membrane landmarks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Structure Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html">Car Parking Shades</a></li>
+            <li><a href="products.html">Walkway Canopies</a></li>
+            <li><a href="products.html">Stadium Roofs</a></li>
+            <li><a href="products.html">Resort Sail Shades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Muzzayan</a></li>
+            <li><a href="services.html">Engineering Process</a></li>
+            <li><a href="blog.html">Technical Insights</a></li>
+            <li><a href="contact.html">Contact Headquarters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Engineering Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+            <i class="fa-solid fa-phone" style="color: var(--accent-sky); margin-right: 8px;"></i> +92 300 1234567
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-envelope" style="color: var(--accent-sky); margin-right: 8px;"></i> projects@muzzayantensile.com
+          </p>
+          <a href="contact.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            Submit Inquiry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Muzzayan Tensile Structures Ltd. All Rights Reserved.</div>
+        <div>Crafted with Precision Atmospheric Engineering.</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567?text=Hello%20Muzzayan%20Tensile%20Team" class="whatsapp-widget" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

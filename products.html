@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products & Portfolio | MUZZAYAN TENSILE - Master Membrane Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .filter-tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab-btn {
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-tab-btn.active, .filter-tab-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-sky);
+      border-color: var(--accent-sky);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .catalog-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-item-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .catalog-img-wrap {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+      background: #080C14;
+    }
+
+    .catalog-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .catalog-item-card:hover .catalog-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .catalog-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--accent-sky);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .catalog-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .catalog-meta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+    }
+
+    .catalog-meta-row div span {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .catalog-meta-row div strong {
+      color: #fff;
+    }
+
+    .btn-quickview {
+      margin-top: auto;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-sky);
+      border: 1px solid var(--accent-sky);
+      border-radius: var(--radius-full);
+      padding: 10px 18px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-quickview:hover {
+      background: var(--accent-sky);
+      color: #0B0F19;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    }
+
+    @media (max-width: 992px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="blueprint-mesh">
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-action-btns">
+        <a href="contact.html" class="btn-header">
+          <i class="fa-solid fa-file-invoice"></i> Get Custom Quote
+        </a>
+      </div>
+
+      <button class="hamburger-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="backdrop-overlay"></div>
+  <aside class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN</div>
+      </div>
+      <button class="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html" class="active">Products & Portfolio</a></li>
+      <li><a href="services.html">Services & Engineering</a></li>
+      <li><a href="blog.html">Insights & Articles</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <span class="badge-tag"><span class="pulse-dot"></span> Master Catalog</span>
+      <h1 style="font-size: 3.2rem; margin-bottom: 16px;">Tensile Products & Portfolio</h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.1rem;">
+        Engineered membrane solutions categorized by structural form, application, and load dynamics.
+      </p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i> <span>Products</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Catalog -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Filter Tabs -->
+      <div class="filter-tab-bar">
+        <button class="filter-tab-btn active" onclick="filterCatalog('all', this)">All Structures</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('parking', this)">Car Parking Shades</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('canopy', this)">Architectural Canopies</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('stadium', this)">Stadium & Sports</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('etfe', this)">ETFE Skylights</button>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div class="catalog-grid" id="catalogGrid">
+        
+        <!-- Item 1: Cantilever Parking -->
+        <div class="catalog-item-card" data-cat="parking">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=800&q=80" alt="Cantilever Car Parking Shade">
+            <span class="catalog-badge">Commercial Bay</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Single Cantilever Car Parking Shade</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Single-column structural arch providing unobstructed vehicle entry with zero ground post interference.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>PVDF 950 gsm</strong></div>
+              <div><span>Wind Resistance</span><strong>140 km/h</strong></div>
+              <div><span>Span</span><strong>Up to 6.5m Bay</strong></div>
+              <div><span>Warranty</span><strong>15 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('Single Cantilever Car Parking Shade', 'PVDF 950 g/m² European Polyester', '6.5m projection span', '140 km/h wind load rated', 'Ideal for corporate headquarters, villas, and hotels requiring elegant pillar-free vehicle shade.', 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2: Double Cantilever -->
+        <div class="catalog-item-card" data-cat="parking">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80" alt="Double Cantilever Parking Shade">
+            <span class="catalog-badge">High Capacity</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Dual-Wing Cantilever Parking Shade</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Centralized steel truss feeding double sided vehicle parking bays for shopping malls and airports.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>PVDF 1050 gsm</strong></div>
+              <div><span>Wind Resistance</span><strong>160 km/h</strong></div>
+              <div><span>Span</span><strong>12m Double Bay</strong></div>
+              <div><span>Warranty</span><strong>20 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('Dual-Wing Cantilever Parking Shade', 'Heavy-Duty PVDF 1050 g/m²', '12m symmetrical span', '160 km/h hurricane rated', 'Engineered for high-volume parking lots where maximizing bay space with central columns is essential.', 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 3: Conical Umbrella -->
+        <div class="catalog-item-card" data-cat="canopy">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Conical Inverted Umbrella Shade">
+            <span class="catalog-badge">Iconic Form</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Inverted Conical Umbrella Canopy</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Dramatic tension cone featuring internal rainwater downspout inside the center mast.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>PTFE Fiberglass</strong></div>
+              <div><span>Wind Resistance</span><strong>170 km/h</strong></div>
+              <div><span>Span</span><strong>Up to 15m Circle</strong></div>
+              <div><span>Warranty</span><strong>25 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('Inverted Conical Umbrella Canopy', 'PTFE Teflon Coated Fiberglass', '10m - 15m radius', '170 km/h storm rated', 'Combines dramatic visual flair with built-in internal storm drain engineering through the steel column.', 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 4: Stadium Mega Roof -->
+        <div class="catalog-item-card" data-cat="stadium">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=800&q=80" alt="Stadium Tensile Membrane Roof">
+            <span class="catalog-badge">Class A1 Fireproof</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Stadium Grandstand Cable Roof</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              High-tension steel cables suspending PTFE membrane over thousands of spectator seats.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>PTFE Structural</strong></div>
+              <div><span>Wind Resistance</span><strong>220 km/h</strong></div>
+              <div><span>Span</span><strong>50m+ Column-Free</strong></div>
+              <div><span>Warranty</span><strong>30 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('Stadium Grandstand Cable Roof', 'Structural PTFE Teflon Fiber 1350g', '50m+ clear spectator span', '220 km/h extreme wind load', 'Non-combustible mega-roof structure engineered for major football, cricket, and athletic sports complexes.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 5: Walkway Pathway -->
+        <div class="catalog-item-card" data-cat="canopy">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Hospital Pathway Canopy">
+            <span class="catalog-badge">Modular Arch</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Architectural Walkway Canopy</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Interlocking wave and arch modules connecting institutional buildings with rain and UV shelter.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>PVDF 900 gsm</strong></div>
+              <div><span>Wind Resistance</span><strong>130 km/h</strong></div>
+              <div><span>Span</span><strong>Continuous</strong></div>
+              <div><span>Warranty</span><strong>15 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('Architectural Walkway Canopy', 'PVDF Translucent White', 'Continuous modular track', '130 km/h rated', 'Protects campus pedestrian walkways from solar heat and monsoon torrential downpours.', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 6: ETFE Atrium Cushions -->
+        <div class="catalog-item-card" data-cat="etfe">
+          <div class="catalog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80" alt="ETFE Pneumatic Cushion Skylight">
+            <span class="catalog-badge">Daylight 95%</span>
+          </div>
+          <div class="catalog-content">
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">ETFE Pneumatic Cushion Skylight</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Multilayer air-filled fluoropolymer membranes replacing heavy skylight glass at 1% of the dead weight.
+            </p>
+            <div class="catalog-meta-row">
+              <div><span>Membrane</span><strong>ETFE Foil 3-Layer</strong></div>
+              <div><span>Light Pass</span><strong>95% Natural Lux</strong></div>
+              <div><span>Self-Cleaning</span><strong>100% Non-Stick</strong></div>
+              <div><span>Warranty</span><strong>30 Years</strong></div>
+            </div>
+            <button class="btn-quickview" onclick="openQuickView('ETFE Pneumatic Cushion Skylight', '3-Layer Pressurized ETFE Foil', 'Wide structural roof spans', 'High typhoon resistance', 'Replaces traditional glass at a fraction of the weight while providing superior thermal U-values and self-cleaning performance.', 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80')">
+              <i class="fa-solid fa-eye"></i> Quick View Specs
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick View Modal Component -->
+  <div class="spec-modal" id="specModal">
+    <div class="modal-content-card">
+      <button class="modal-close-trigger"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: center; margin-bottom: 24px;">
+        <div style="height: 220px; border-radius: var(--radius-sm); overflow: hidden; background: #000;">
+          <img id="modalImg" src="" alt="Structure Preview" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div>
+          <span style="color: var(--accent-sky); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Technical Dossier</span>
+          <h2 id="modalTitle" style="font-size: 1.5rem; margin: 6px 0 12px; color: #fff;"></h2>
+          <p id="modalDesc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;"></p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-surface-elevated); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 0.85rem;">
+          <div><span style="color: var(--text-muted); display: block;">Membrane Fabric:</span><strong id="modalMembrane" style="color: #fff;"></strong></div>
+          <div><span style="color: var(--text-muted); display: block;">Span Capacity:</span><strong id="modalSpan" style="color: #fff;"></strong></div>
+          <div><span style="color: var(--text-muted); display: block;">Wind Endurance:</span><strong id="modalWind" style="color: #fff;"></strong></div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 14px;">
+        <a href="contact.html" class="btn-primary" style="flex: 1; text-align: center;">Inquire For This Model</a>
+        <a href="https://wa.me/923001234567" target="_blank" class="btn-secondary" style="color: #25D366; border-color: rgba(37,211,102,0.4);">
+          <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+            <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+            <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.7;">
+            Pioneering architectural fabric engineering, cantilever shades, and tensile membrane landmarks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Structure Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html">Car Parking Shades</a></li>
+            <li><a href="products.html">Walkway Canopies</a></li>
+            <li><a href="products.html">Stadium Roofs</a></li>
+            <li><a href="products.html">Resort Sail Shades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Muzzayan</a></li>
+            <li><a href="services.html">Engineering Process</a></li>
+            <li><a href="blog.html">Technical Insights</a></li>
+            <li><a href="contact.html">Contact Headquarters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Engineering Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+            <i class="fa-solid fa-phone" style="color: var(--accent-sky); margin-right: 8px;"></i> +92 300 1234567
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-envelope" style="color: var(--accent-sky); margin-right: 8px;"></i> projects@muzzayantensile.com
+          </p>
+          <a href="contact.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            Submit Inquiry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Muzzayan Tensile Structures Ltd. All Rights Reserved.</div>
+        <div>Crafted with Precision Atmospheric Engineering.</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567?text=Hello%20Muzzayan%20Tensile%20Team" class="whatsapp-widget" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    function filterCatalog(cat, btn) {
+      document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.catalog-item-card');
+      items.forEach(item => {
+        if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

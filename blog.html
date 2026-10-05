@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights & Engineering Blog | MUZZAYAN TENSILE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .blog-hero-featured {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 70px;
+      transition: var(--transition);
+    }
+
+    .blog-hero-featured:hover {
+      box-shadow: var(--shadow-md), 0 0 30px rgba(56, 189, 248, 0.2);
+    }
+
+    .blog-featured-img {
+      height: 380px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .blog-featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .blog-hero-featured:hover .blog-featured-img img {
+      transform: scale(1.05);
+    }
+
+    .blog-featured-content {
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .blog-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-card-thumb {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .blog-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .blog-card:hover .blog-card-thumb img {
+      transform: scale(1.08);
+    }
+
+    .blog-card-body {
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--accent-sky);
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 992px) {
+      .blog-hero-featured {
+        grid-template-columns: 1fr;
+      }
+      .blog-card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="blueprint-mesh">
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html" class="active">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-action-btns">
+        <a href="contact.html" class="btn-header">
+          <i class="fa-solid fa-file-invoice"></i> Get Custom Quote
+        </a>
+      </div>
+
+      <button class="hamburger-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="backdrop-overlay"></div>
+  <aside class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN</div>
+      </div>
+      <button class="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products & Portfolio</a></li>
+      <li><a href="services.html">Services & Engineering</a></li>
+      <li><a href="blog.html" class="active">Insights & Articles</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <span class="badge-tag"><span class="pulse-dot"></span> Architectural Whitepapers</span>
+      <h1 style="font-size: 3.2rem; margin-bottom: 16px;">Tensile Architecture Insights</h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.1rem;">
+        Technical deep-dives on membrane textile sciences, wind load physics, solar thermal reflection, and maintenance.
+      </p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i> <span>Insights</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Master Article -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <div class="blog-hero-featured">
+        <div class="blog-featured-img">
+          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1200&q=80" alt="Tensile Membrane Science">
+        </div>
+        <div class="blog-featured-content">
+          <div class="blog-meta-tag">
+            <i class="fa-solid fa-bolt"></i> Featured Study • 7 Min Read
+          </div>
+          <h2 style="font-size: 1.85rem; margin-bottom: 16px;">PTFE vs PVDF Membranes: Structural Comparison for Harsh Climates</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px;">
+            An engineering analysis of how Teflon-coated fiberglass withstands high UV indexes, desert sandstorms, and coastal salt corrosion compared with standard coated polyester lacquers.
+          </p>
+          <div>
+            <a href="contact.html" class="btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">
+              Read Technical Paper <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="blog-card-grid">
+        
+        <!-- Post 1 -->
+        <article class="blog-card">
+          <div class="blog-card-thumb">
+            <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=800&q=80" alt="Car Parking Thermal Analysis">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta-tag">
+              <i class="fa-solid fa-sun"></i> Thermal Physics • 4 Min Read
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px;">How Tensile Car Parking Shades Drop Surface Heat by 15°C</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;">
+              Examining the solar reflectance index (SRI) of PVDF membranes and their role in preventing vehicle battery degradation and cockpit cabin heat traps.
+            </p>
+            <a href="contact.html" style="color: var(--accent-sky); text-decoration: none; font-size: 0.88rem; font-weight: 600; margin-top: auto;">
+              Read Full Article <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card">
+          <div class="blog-card-thumb">
+            <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=800&q=80" alt="FEA Wind Tunnel Simulation">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta-tag">
+              <i class="fa-solid fa-wind"></i> Wind Engineering • 6 Min Read
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Non-Linear FEA: Preventing Flutter & Aerodynamic Resonance</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;">
+              Why pretension geometry matters: how calibrated tension prevents destructive harmonic oscillation during 160+ km/h cyclone storms.
+            </p>
+            <a href="contact.html" style="color: var(--accent-sky); text-decoration: none; font-size: 0.88rem; font-weight: 600; margin-top: auto;">
+              Read Full Article <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card">
+          <div class="blog-card-thumb">
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80" alt="ETFE Foil Cushions">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta-tag">
+              <i class="fa-solid fa-lightbulb"></i> Eco Innovation • 5 Min Read
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px;">ETFE Foil Cushions: The Carbon-Neutral Alternative to Glass</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;">
+              Analyzing the embodied energy, structural steel savings, and natural lighting benefits of multi-layer pneumatic ETFE roof systems.
+            </p>
+            <a href="contact.html" style="color: var(--accent-sky); text-decoration: none; font-size: 0.88rem; font-weight: 600; margin-top: auto;">
+              Read Full Article <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+            <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+            <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.7;">
+            Pioneering architectural fabric engineering, cantilever shades, and tensile membrane landmarks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Structure Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html">Car Parking Shades</a></li>
+            <li><a href="products.html">Walkway Canopies</a></li>
+            <li><a href="products.html">Stadium Roofs</a></li>
+            <li><a href="products.html">Resort Sail Shades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Muzzayan</a></li>
+            <li><a href="services.html">Engineering Process</a></li>
+            <li><a href="blog.html">Technical Insights</a></li>
+            <li><a href="contact.html">Contact Headquarters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Engineering Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+            <i class="fa-solid fa-phone" style="color: var(--accent-sky); margin-right: 8px;"></i> +92 300 1234567
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-envelope" style="color: var(--accent-sky); margin-right: 8px;"></i> projects@muzzayantensile.com
+          </p>
+          <a href="contact.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            Submit Inquiry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Muzzayan Tensile Structures Ltd. All Rights Reserved.</div>
+        <div>Crafted with Precision Atmospheric Engineering.</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567?text=Hello%20Muzzayan%20Tensile%20Team" class="whatsapp-widget" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

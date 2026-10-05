@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUZZAYAN TENSILE | Architectural Membrane & Tensile Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Home Specific Styles */
+    .hero-master {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 130px;
+      padding-bottom: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 10%;
+      right: 5%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-master h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .hero-lead {
+      color: var(--text-muted);
+      font-size: 1.18rem;
+      margin-bottom: 36px;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .hero-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .stat-box h3 {
+      font-size: 2.1rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .stat-box h3 span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* 3D Showcase Card */
+    .hero-frame-card {
+      position: relative;
+      background: linear-gradient(145deg, #131B2E, #0F172A);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+      transition: var(--transition-slow);
+    }
+
+    .hero-frame-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+    }
+
+    .hero-frame-inner {
+      position: relative;
+      height: 490px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #080C14;
+    }
+
+    .hero-frame-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-frame-card:hover .hero-frame-inner img {
+      transform: scale(1.06);
+    }
+
+    .floating-spec-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Bento Grid */
+    .bento-layout {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .bento-card-span8 { grid-column: span 8; }
+    .bento-card-span4 { grid-column: span 4; }
+    .bento-card-span6 { grid-column: span 6; }
+    .bento-card-span12 { grid-column: span 12; }
+
+    .bento-icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-sm);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-sky);
+      font-size: 1.4rem;
+      margin-bottom: 22px;
+      transition: var(--transition);
+    }
+
+    .tech-card:hover .bento-icon-box {
+      background: var(--accent-sky);
+      color: #0B0F19;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Interactive Calculator */
+    .calc-card-container {
+      background: linear-gradient(135deg, #131B2E, #0F172A);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .calc-dual-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .calc-input-box {
+      margin-bottom: 24px;
+    }
+
+    .calc-input-box label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .custom-select, .custom-range {
+      width: 100%;
+      background: #0B0F19;
+      border: 1px solid var(--border-subtle);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .custom-select:focus {
+      border-color: var(--accent-sky);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    }
+
+    .range-flex-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .custom-range {
+      accent-color: var(--accent-sky);
+      cursor: pointer;
+      padding: 0;
+      height: 8px;
+    }
+
+    .range-val-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-sky);
+      min-width: 100px;
+    }
+
+    .calc-display-panel {
+      background: #080C14;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .calc-big-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.9rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    /* FAQ Accordion */
+    .faq-accordion-box {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-panel.active {
+      border-color: var(--border-glow);
+    }
+
+    .faq-q-btn {
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+
+    .faq-q-btn i {
+      color: var(--accent-sky);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-panel.active .faq-q-btn i {
+      transform: rotate(180deg);
+    }
+
+    .faq-a-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 28px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq-panel.active .faq-a-body {
+      max-height: 220px;
+      padding-bottom: 22px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .bento-card-span8, .bento-card-span4, .bento-card-span6 { grid-column: span 12; }
+      .calc-dual-grid { grid-template-columns: 1fr; }
+      .hero-master h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body class="blueprint-mesh">
+
+  <!-- Shared Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-action-btns">
+        <a href="contact.html" class="btn-header">
+          <i class="fa-solid fa-file-invoice"></i> Get Custom Quote
+        </a>
+      </div>
+
+      <button class="hamburger-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="backdrop-overlay"></div>
+  <aside class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+        <div class="brand-name">MUZZAYAN</div>
+      </div>
+      <button class="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products & Portfolio</a></li>
+      <li><a href="services.html">Services & Engineering</a></li>
+      <li><a href="blog.html">Insights & Articles</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 24px;">
+      <a href="contact.html" class="btn-primary" style="width: 100%;">
+        Request Quote
+      </a>
+    </div>
+  </aside>
+
+  <!-- Master Cinematic Hero -->
+  <section class="hero-master">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-tag">
+          <span class="pulse-dot"></span> Next-Gen Tensile Membrane Architecture
+        </div>
+        <h1>
+          Sculpting Space With <span class="text-gradient">Structural Tension</span> & Light.
+        </h1>
+        <p class="hero-lead">
+          Muzzayan Tensile delivers world-class architectural membrane systems, high-capacity car parking shades, stadium roofs, and dynamic canopies engineered for 25+ years of extreme structural endurance.
+        </p>
+
+        <div class="hero-btn-row">
+          <a href="products.html" class="btn-primary">
+            <i class="fa-solid fa-layer-group"></i> Explore Portfolio
+          </a>
+          <a href="#calculator" class="btn-secondary">
+            <i class="fa-solid fa-calculator"></i> Cost Calculator
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-box">
+            <h3>550<span>+</span></h3>
+            <p>Executed Projects</p>
+          </div>
+          <div class="stat-box">
+            <h3>25<span>Yrs</span></h3>
+            <p>Certified Membrane Life</p>
+          </div>
+          <div class="stat-box">
+            <h3>180<span>km/h</span></h3>
+            <p>Wind Load Engineering</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Realistic Showcase Visual -->
+      <div class="hero-frame-card">
+        <div class="hero-frame-inner">
+          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1200&q=80" alt="Tensile Architecture Structure">
+          <div class="floating-spec-badge">
+            <div>
+              <div style="font-weight: 700; color: #fff; font-size: 1rem;">Hyperbolic Saddle Canopy</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">PVDF 1050g/m² | High Tensile Steel Trusses</div>
+            </div>
+            <span style="background: rgba(56, 189, 248, 0.15); color: var(--accent-sky); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1px solid var(--accent-sky);">
+              ISO 9001
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infinite Brand Marquee -->
+  <div class="marquee-ticker">
+    <div class="marquee-rail">
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> PTFE FIBERGLASS FABRICS</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> HIGH LOAD CABLE TRUSS SYSTEMS</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> UV 99.8% BLOCKAGE CANTILEVER SHADES</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> COMMERCIAL PARKING INFRASTRUCTURE</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> STADIUM MEGA TENSILE MEMBRANES</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> ETFE PRESSURIZED CUSHION ROOFS</div>
+      <!-- Duplicate -->
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> PTFE FIBERGLASS FABRICS</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> HIGH LOAD CABLE TRUSS SYSTEMS</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> UV 99.8% BLOCKAGE CANTILEVER SHADES</div>
+      <div class="marquee-node"><i class="fa-solid fa-check-circle"></i> COMMERCIAL PARKING INFRASTRUCTURE</div>
+    </div>
+  </div>
+
+  <!-- Bento Grid Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Engineering Excellence</span>
+        <h2 class="section-maintitle">Master Tensile Solutions</h2>
+        <p class="section-desc">Engineered precisely for commercial, civic, industrial, and luxury residential projects.</p>
+      </div>
+
+      <div class="bento-layout">
+        <!-- Card 1: Car Parking -->
+        <div class="tech-card bento-card-span8">
+          <div class="bento-icon-box"><i class="fa-solid fa-car-side"></i></div>
+          <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Car Parking Tensile Canopies</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            Cantilever single & double-bay structures designed with aerodynamic slope and concealed gutter integration. UV heat reduction up to 15°C below ambient temperature.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+            <span style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 700;">SPAN: UP TO 30M CANTILEVER</span>
+            <a href="products.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+              View Gallery <i class="fa-solid fa-arrow-right" style="color: var(--accent-sky);"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Walkway Pathway -->
+        <div class="tech-card bento-card-span4">
+          <div class="bento-icon-box"><i class="fa-solid fa-person-walking"></i></div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Walkway Canopies</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            Architectural barrel-vault and wave-form pedestrian links for airports, hospitals, and educational campuses.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+            <span style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 700;">CONTINUOUS ARCH</span>
+            <a href="products.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+              Details <i class="fa-solid fa-arrow-right" style="color: var(--accent-sky);"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Stadium Roofs -->
+        <div class="tech-card bento-card-span4">
+          <div class="bento-icon-box"><i class="fa-solid fa-landmark-dome"></i></div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Stadium & Arena Envelopes</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            Non-combustible PTFE fiberglass membranes spanning hundreds of meters without obstructive center pillars.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+            <span style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 700;">CLASS A1 FIREPROOF</span>
+            <a href="products.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+              Details <i class="fa-solid fa-arrow-right" style="color: var(--accent-sky);"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Pool & Resort -->
+        <div class="tech-card bento-card-span4">
+          <div class="bento-icon-box"><i class="fa-solid fa-water-ladder"></i></div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Resort & Pool Shade Sails</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            Hyperbolic paraboloid double-curved tension sails offering luxury aesthetic ambience and 99% UV blockage.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+            <span style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 700;">3D SADDLE TENSION</span>
+            <a href="products.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+              Details <i class="fa-solid fa-arrow-right" style="color: var(--accent-sky);"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: ETFE Atrium -->
+        <div class="tech-card bento-card-span4">
+          <div class="bento-icon-box"><i class="fa-solid fa-building"></i></div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">ETFE Skylights & Atriums</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            Pneumatic transparent foil cushions letting in natural sunlight with superior acoustic and thermal insulation.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+            <span style="color: var(--accent-sky); font-size: 0.85rem; font-weight: 700;">95% NATURAL LIGHT</span>
+            <a href="products.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+              Details <i class="fa-solid fa-arrow-right" style="color: var(--accent-sky);"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Project Cost Estimator -->
+  <section class="section-padding" id="calculator" style="background: #080C14;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Instant Financial Modeling</span>
+        <h2 class="section-maintitle">Tensile Cost Estimator</h2>
+        <p class="section-desc">Select your structure requirements for real-time preliminary budget projection.</p>
+      </div>
+
+      <div class="calc-card-container">
+        <div class="calc-dual-grid">
+          <div>
+            <div class="calc-input-box">
+              <label><i class="fa-solid fa-shapes" style="color: var(--accent-sky);"></i> Structure Classification</label>
+              <select id="homeCalcType" class="custom-select" onchange="runHomeEstimate()">
+                <option value="18">Commercial Car Parking Cantilever ($18 / sq ft)</option>
+                <option value="22">Conical Umbrella Shade System ($22 / sq ft)</option>
+                <option value="25">Architectural Walkway Canopy ($25 / sq ft)</option>
+                <option value="38">Mega Stadium & Arena Roof ($38 / sq ft)</option>
+              </select>
+            </div>
+
+            <div class="calc-input-box">
+              <label><i class="fa-solid fa-scroll" style="color: var(--accent-sky);"></i> Membrane Grade Specification</label>
+              <select id="homeCalcMaterial" class="custom-select" onchange="runHomeEstimate()">
+                <option value="1.0">Standard PVDF Polyester (900 g/m² - 15 Yrs Warranty)</option>
+                <option value="1.35">Heavy-Duty Architectural PVDF (1050 g/m² - 20 Yrs)</option>
+                <option value="2.2">PTFE Teflon Fiberglass (Class A1 Fireproof - 30 Yrs)</option>
+                <option value="2.8">ETFE Fluoropolymer Multi-Layer Cushion</option>
+              </select>
+            </div>
+
+            <div class="calc-input-box">
+              <label><i class="fa-solid fa-ruler-combined" style="color: var(--accent-sky);"></i> Target Area (Square Feet)</label>
+              <div class="range-flex-row">
+                <input type="range" id="homeCalcArea" min="300" max="12000" step="100" value="1500" class="custom-range" oninput="updateHomeSlider(this.value)">
+                <div class="range-val-badge" id="homeAreaVal">1,500 sq ft</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div class="calc-display-panel">
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">
+              Preliminary Cost Estimate
+            </div>
+            <div class="calc-big-price" id="homeCalcTotal">$27,000</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;" id="homeCalcDetail">
+              Includes non-linear FEA analysis, fabrication, and site installation.
+            </p>
+            <a href="contact.html" class="btn-primary" style="width: 100%;">
+              Lock In This Estimate <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">Client Queries</span>
+        <h2 class="section-maintitle">Frequently Asked Questions</h2>
+        <p class="section-desc">Clear answers to your technical and commercial engineering questions.</p>
+      </div>
+
+      <div class="faq-accordion-box">
+        <div class="faq-panel active">
+          <div class="faq-q-btn" onclick="toggleHomeFaq(this)">
+            <span>What wind velocity can Muzzayan Tensile structures resist?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a-body">
+            All our structures undergo computational fluid dynamics (CFD) and non-linear finite element analysis (FEA). Standard car parking shades comfortably withstand sustained winds up to 140 km/h, while stadium and custom projects are rated up to 180–220 km/h.
+          </div>
+        </div>
+
+        <div class="faq-item faq-panel">
+          <div class="faq-q-btn" onclick="toggleHomeFaq(this)">
+            <span>What is the actual service life and warranty period?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a-body">
+            Standard PVDF membranes feature a 10 to 15-year warranty with 20+ years lifespan. Premium PTFE Teflon fiberglass systems feature a 25-year structural warranty with an actual operational lifespan exceeding 35 years.
+          </div>
+        </div>
+
+        <div class="faq-item faq-panel">
+          <div class="faq-q-btn" onclick="toggleHomeFaq(this)">
+            <span>Are tensile membranes 100% waterproof and heat reflective?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a-body">
+            Yes. Architectural PVDF and PTFE fabrics are completely impermeable to water with high-frequency welded seams. They also reflect over 80% of solar radiation, dramatically lowering temperatures underneath.
+          </div>
+        </div>
+
+        <div class="faq-item faq-panel">
+          <div class="faq-q-btn" onclick="toggleHomeFaq(this)">
+            <span>How quickly can a customized project be fabricated and installed?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a-body">
+            Standard car parking bays can be fabricated and installed within 10 to 14 business days. Large custom commercial or stadium canopies typically take 4 to 8 weeks depending on engineering complexity and foundation curing.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Call to Action Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+            <div class="brand-badge"><i class="fa-solid fa-shapes"></i></div>
+            <div class="brand-name">MUZZAYAN<span class="brand-highlight"> TENSILE</span></div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.7;">
+            Pakistan & International leaders in high-performance tensile fabric architecture, cantilever parking shades, and grandstand membrane roofs.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Structure Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="products.html">Car Parking Shades</a></li>
+            <li><a href="products.html">Walkway Canopies</a></li>
+            <li><a href="products.html">Stadium Roofs</a></li>
+            <li><a href="products.html">Resort Sail Shades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Muzzayan</a></li>
+            <li><a href="services.html">Engineering Process</a></li>
+            <li><a href="blog.html">Technical Insights</a></li>
+            <li><a href="contact.html">Contact Headquarters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Engineering Support</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+            <i class="fa-solid fa-phone" style="color: var(--accent-sky); margin-right: 8px;"></i> +92 300 1234567
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-envelope" style="color: var(--accent-sky); margin-right: 8px;"></i> projects@muzzayantensile.com
+          </p>
+          <a href="contact.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            Submit Inquiry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Muzzayan Tensile Structures Ltd. All Rights Reserved.</div>
+        <div>Crafted with Precision Atmospheric Engineering.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Trigger -->
+  <a href="https://wa.me/923001234567?text=Hello%20Muzzayan%20Tensile%2C%20I%20am%20interested%20in%20a%20structure%20quote" class="whatsapp-widget" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Shared Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    function updateHomeSlider(val) {
+      document.getElementById('homeAreaVal').innerText = Number(val).toLocaleString() + ' sq ft';
+      runHomeEstimate();
+    }
+
+    function runHomeEstimate() {
+      const rate = parseFloat(document.getElementById('homeCalcType').value);
+      const mat = parseFloat(document.getElementById('homeCalcMaterial').value);
+      const area = parseInt(document.getElementById('homeCalcArea').value);
+
+      const total = Math.round(rate * mat * area);
+      document.getElementById('homeCalcTotal').innerText = '$' + total.toLocaleString();
+      document.getElementById('homeCalcDetail').innerText = 
+        `Estimated @ $${(rate * mat).toFixed(2)}/sq ft for ${area.toLocaleString()} sq ft structure.`;
+    }
+
+    function toggleHomeFaq(btn) {
+      const panel = btn.parentElement;
+      const isActive = panel.classList.contains('active');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.remove('active'));
+      if (!isActive) {
+        panel.classList.add('active');
+      }
+    }
+
+    // Run initial calc
+    runHomeEstimate();
+  </script>
+</body>
+</html>
